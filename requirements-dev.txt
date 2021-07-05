@@ -1,0 +1,7 @@
+-r requirements.txt
+black==21.6b0
+mypy==0.910
+nox==2021.6.12
+sphinx==4.0.3
+sphinx-rtd-dark-mode==1.2.2
+sphinx-rtd-theme==0.5.2
