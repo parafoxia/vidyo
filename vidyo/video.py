@@ -100,7 +100,9 @@ class Video:
 
     def get_thumbnail(self) -> None:
         logging.info("Getting thumbnail...")
-        t = sorted(self._thumbnails.items(), key=lambda x: x[1]["width"], reverse=True)[0][1]
+        t = sorted(
+            self._thumbnails.items(), key=lambda x: x[1]["width"], reverse=True
+        )[0][1]
         logging.info(f"Highest resolution: {t['width']}x{t['height']}")
         with requests.get(t["url"]) as r:
             if not r.ok:
