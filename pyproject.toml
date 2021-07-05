@@ -1,2 +1,3 @@
 [tool.black]
+extend-exclude = "vidyo/__init__.py"
 line-length = 79

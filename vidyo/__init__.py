@@ -1,8 +1,6 @@
 __productname__ = "vidyo"
 __version__ = "0.0.0"
-__description__ = (
-    "A simple way to get information on YouTube videos, async or otherwise."
-)
+__description__ = "A simple way to get information on YouTube videos, async or otherwise."
 __url__ = "https://github.com/parafoxia/vidyo"
 __docs__ = "https://vidyo.readthedocs.io/en/latest/"
 __author__ = "Ethan Henderson"
