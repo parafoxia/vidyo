@@ -54,8 +54,8 @@ The following example shows you how display the title and number of views of the
 ```py
 from vidyo import Client
 
+# Load your API key from a file.
 with open("secrets/api-key") as f:
-    # Load your API key from a file
     key = f.read()
 
 client = Client(key)
