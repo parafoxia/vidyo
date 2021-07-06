@@ -1,6 +1,6 @@
 # vidyo
 
-[![PyPi version](https://img.shields.io/pypi/v/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![License](https://img.shields.io/github/license/parafoxia/vidyo.svg)](https://github.com/parafoxia/vidyo/blob/main/LICENSE)
+[![PyPi version](https://img.shields.io/pypi/v/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![License](https://img.shields.io/github/license/parafoxia/vidyo.svg)](https://github.com/parafoxia/vidyo/blob/main/LICENSE) [![Documentation Status](https://readthedocs.org/projects/vidyo/badge/?version=latest)](https://vidyo.readthedocs.io/en/latest/?badge=latest)
 
 A simple way to get information on YouTube videos.
 
