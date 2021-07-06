@@ -17,7 +17,7 @@ def client() -> vidyo.Client:
 def test_normal(client: vidyo.Client) -> None:
     v = client.get_video("jNQXAC9IVRw")
     assert v.id == "jNQXAC9IVRw"
-    assert v.date_published == dt.datetime(2005, 4, 24, 3, 31, 52)
+    assert v.published == dt.datetime(2005, 4, 24, 3, 31, 52)
     assert v.channel.name == "jawed"
     assert v.channel.id == "UC4QobU6STFB0P71PMvOGN5A"
     assert v.title == "Me at the zoo"

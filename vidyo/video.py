@@ -16,9 +16,39 @@ DUR_MUL = (86400, 3600, 60, 1)
 
 
 class Video:
+    """An object containing video information.
+
+    Args:
+        data (dict): Response data from the YouTube Data API. This should be the first element in the :code:`items` list.
+
+    Attributes:
+        id (str): The video ID.
+        published (datetime.datetime): The date and time and the video was published.
+        channel (PartialChannel): The YouTube channel to which the video was published.
+        title (str): The video title.
+        description (str): The video's description.
+        tags (list[str]): A list of the video's tags. If there are none, this is an empty list.
+        category_id (int): The video's category's ID.
+        live (bool): Whether the video is currently live. This could mean it is a premiere or a live stream.
+        duration (datetime.timedelta): The video's duration.
+        is_3d (bool): Whether the video was uploaded in 3D.
+        is_hd (bool): Whether there is a HD version of the video available (720p or above).
+        captioned (bool): Whether there are captions available on the video.
+        is_360 (bool): Whether the video was recorded in 360 degrees.
+        privacy (str): The video's privacy status. Can be "public", "unlisted", or "private".
+        license (str): The video's license. Can be either "youtube" or "creativeCommon".
+        embeddable (bool): Whether the video is embeddable.
+        for_kids (bool): Whether the video is marked as "Made For Kids".
+        views (int): The number of views the video has. If this is not available, this will be -1.
+        likes (int): The number of likes the video has. If ratings are disabled, this will be -1.
+        dislikes (int): The number of dislikes the video has. If ratings are disabled, this will be -1.
+        favourites (int): The number of favourites the video has. If this is not available, this will be -1.
+        comments (int): The number of comments the video has. If comments are disabled, this will be -1.
+    """
+
     __slots__ = (
         "id",
-        "date_published",
+        "published",
         "channel",
         "title",
         "description",
@@ -52,7 +82,7 @@ class Video:
         self._thumbnails = snippet["thumbnails"]
 
         self.id = data["id"]
-        self.date_published = dt.datetime.fromisoformat(
+        self.published = dt.datetime.fromisoformat(
             snippet["publishedAt"].strip("Z")
         )
         self.channel = PartialChannel(
@@ -98,7 +128,15 @@ class Video:
                 secs += int(g[:-1]) * DUR_MUL[i]
         return dt.timedelta(seconds=secs)
 
-    def get_thumbnail(self) -> None:
+    def get_thumbnail(self) -> Image.Image:
+        """Gets the highest resolution thumbnail available.
+
+        Returns:
+            PIL.Image.Image: A Pillow image.
+
+        Raises:
+            ResponseNotOK: The request returned a non-OK status code.
+        """
         logging.info("Getting thumbnail...")
         t = sorted(
             self._thumbnails.items(), key=lambda x: x[1]["width"], reverse=True

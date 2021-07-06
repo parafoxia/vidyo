@@ -1,4 +1,17 @@
 class PartialChannel:
+    """An object with limited channel information.
+
+    Args:
+        id_ (str): The channel ID.
+        name (str): The channel name.
+
+    Attributes:
+        id (str): The channel ID.
+        name (str): The channel name.
+    """
+
+    __slots__ = ("id", "name")
+
     def __init__(self, id_: str, name: str) -> None:
         self.id = id_
         self.name = name
