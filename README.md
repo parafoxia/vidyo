@@ -1,6 +1,16 @@
 # vidyo
 
-[![PyPi version](https://img.shields.io/pypi/v/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![PyPI pyversions](https://img.shields.io/pypi/pyversions/vidyo.svg)](https://pypi.python.org/pypi/vidyo/) [![License](https://img.shields.io/github/license/parafoxia/vidyo.svg)](https://github.com/parafoxia/vidyo/blob/main/LICENSE) [![Documentation Status](https://readthedocs.org/projects/vidyo/badge/?version=latest)](https://vidyo.readthedocs.io/en/latest/?badge=latest)
+[![PyPi version](https://img.shields.io/pypi/v/vidyo.svg)](https://pypi.python.org/pypi/vidyo/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/vidyo.svg)](https://pypi.python.org/pypi/vidyo/)
+[![PyPI - Implementation](https://img.shields.io/pypi/implementation/vidyo)](https://pypi.python.org/pypi/vidyo/)
+[![PyPI - Status](https://img.shields.io/pypi/status/vidyo)](https://pypi.python.org/pypi/vidyo/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/vidyo)](https://pypi.python.org/pypi/vidyo/)
+
+[![Maintenance](https://img.shields.io/maintenance/yes/2021)](https://github.com/parafoxia/vidyo)
+[![GitHub Release Date](https://img.shields.io/github/release-date/parafoxia/vidyo)](https://github.com/parafoxia/vidyo)
+[![GitHub last commit](https://img.shields.io/github/last-commit/parafoxia/vidyo)](https://github.com/parafoxia/vidyo)
+[![Read the Docs](https://img.shields.io/readthedocs/vidyo)](https://vidyo.readthedocs.io/en/latest/index.html)
+[![License](https://img.shields.io/github/license/parafoxia/vidyo.svg)](https://github.com/parafoxia/vidyo/blob/main/LICENSE)
 
 A simple way to get information on YouTube videos.
 
@@ -12,44 +22,25 @@ A simple way to get information on YouTube videos.
 
 ## Installation
 
-**You need Python 3.7.0 or greater to run vidyo.** You will also need to have a Google Developers project with the YouTube Data API enabled. You can find instructions on how to do that in the [documentation](https://vidyo.readthedocs.io/en/latest/starting/google-dev.html).
+**You need Python 3.7.0 or greater to run vidyo.** It is recommended you install vidyo in a virtual environment.
 
-It is recommended you install vidyo in a virtual environment. To do this, run the following:
-
-```bash
-# Windows
-> py -3.9 -m venv .venv
-> .venv\Scripts\activate
-> pip install vidyo
-
-# Linux\macOS
-$ python3.9 -m venv .venv
-$ source ./.venv/bin/activate
-$ pip install vidyo
+To install the latest stable version of vidyo, use the following command:
+```sh
+pip install vidyo
 ```
 
-To install vidyo outside of a virtual environment instead, run the following:
-
-```bash
-# Windows
-> py -3.9 -m pip install vidyo
-
-# Linux/macOS
-$ python3.9 -m pip install vidyo
+You can also install the latest development version using the following command:
+```sh
+pip install git+https://github.com/parafoxia/vidyo.git@develop
 ```
 
-You can also install the development version by running the following (this assumes you're on Linux/macOS):
+You may need to prefix these commands with `py -m` or `python3.9 -m` (or similar) depending on your OS.
 
-```bash
-$ git clone https://github.com/parafoxia/vidyo
-$ cd vidyo
-$ git checkout develop  # Any valid branch name can go here.
-$ python3.9 -m pip install -U .
-```
+## Quickstart
 
-## Usage examples
+Before you begin, you will need to have a Google Developers project with the YouTube Data API enabled. You can find instructions on how to do that in the [documentation](https://vidyo.readthedocs.io/en/latest/starting/google-dev.html).
 
-The following example shows you how display the title and number of views of the first YouTube video and then download its thumbnail.
+Once you've done that, getting video information is easy. The below example displays the title and number of views of YouTube's first video and then downloads its thumbnail.
 
 ```py
 from vidyo import Client
@@ -63,6 +54,8 @@ video = client.get_video("jNQXAC9IVRw")
 print(f"{video.title} has {video.views:,} views.")
 video.get_thumbnail().save("thumbnail.jpg")
 ```
+
+To read up further, [have a look at the documentation](https://vidyo.readthedocs.io/en/latest/).
 
 ## License
 
